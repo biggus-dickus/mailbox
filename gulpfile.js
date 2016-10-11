@@ -12,6 +12,7 @@ var gulp = require('gulp'),
   cmq = require('gulp-combine-mq'),
   cssnano = require('gulp-cssnano'),
   rename = require('gulp-rename'),
+  rigger = require('gulp-rigger'),
   rimraf = require('rimraf'),
   pngquant = require('imagemin-pngquant'),
   imagemin = require('gulp-imagemin'),
@@ -70,6 +71,7 @@ gulp.task('clean', function (cb) {
 
 gulp.task('html:build', function () {
   gulp.src(path.src.html)
+    .pipe(rigger())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(path.build.html))
     .pipe(reload({stream: true}));

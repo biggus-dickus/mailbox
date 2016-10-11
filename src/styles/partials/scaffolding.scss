@@ -5,20 +5,16 @@ html { box-sizing: border-box; }
 *:after { box-sizing: inherit; }
 
 body {
-  min-width: $screen-xs; 
-  font-family: Helvetica, Arial, sans-serif;
+  min-width: $sm; 
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: $p;
-  line-height: 1.42;
+  line-height: 1.45;
   color: $text-base;
 }
 
 img {
   max-width: 100%;
   height: auto;
-}
-
-p {
-  font-size: $p;
 }
 
 // Hiding spinners in num fields by default

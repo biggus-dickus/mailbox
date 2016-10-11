@@ -9,3 +9,8 @@
     overflow-wrap: break-word;
     hyphens: auto;
 }
+
+%header-appearance {
+  font-weight: 300;
+  color: $palette-light;
+}

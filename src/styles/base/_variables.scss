@@ -1,11 +1,8 @@
 /* Paths */
-$fonts-path: "../fonts/";
+$fonts-path: "../fonts"; // Relative to the compiled CSS file!
 
 /* Dimensions */
-$screen-xs: 320px;
-$screen-sm: 480px;
-$screen-md: 768px;
-$screen-lg: 1200px;
+$sm: 768px;
 
 /* Retina */
 $retina2x: "(min-resolution: 2dppx)";
@@ -15,21 +12,16 @@ $retina3x: "(min-resolution: 3dppx)";
 $navbar-height: 55px;
 
 /* Colors */
-$black: #000000;
-$white: #ffffff;
-$blue: #81b3d2;
-$blue-hover: #669ec0;
-$blue-focus: #5496bd;
-$brown: #766357;
-$gray-base: #e5e5e5;
-$gray-lighter: #f2f2f2;
-$gray-darker: #d5d5d5;
-$text-base: #333333;
+$palette-main: #3e545f;
+$palette-light: #fff;
+$palette-dark: #000;
+$text-base: #8da3c5;
 
 /* Typography */
-$header-xl: 30px;
-$header: 21px;
-$p: 14px;
+$p: 16px;
+$header: 1.5 * $p;
+$header-xl: 2 * $p;
+
 
 /* etc */
 $over9000: -9999px;

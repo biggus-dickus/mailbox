@@ -1,0 +1,27 @@
+{
+  "name": "mailbox",
+  "description": "Training course project powered by AngularJS 1.5",
+  "main": "index.html",
+  "authors": [
+    "Max Maslenko"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "sandbox",
+    "educational",
+    "course",
+    "project"
+  ],
+  "homepage": "http://biggus-dickus.github.io/mailbox",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.0"
+  }
+}

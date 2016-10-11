@@ -1,0 +1,52 @@
+.side-panel {
+  width: $side-panel-width;
+  padding: 35px 10px;
+  border-right: 1px solid #20303a;
+  background-image: linear-gradient(to top right, #162432, #364a54);
+
+  &__user { margin: 0; }
+
+  &__user-pic {
+    display: block;
+    width: 115px;
+    height: 115px;
+    margin: 0 auto;
+    border: 7px solid fade-out($palette-dark, 0.75);
+    border-radius: 50%;
+  }
+
+  &__user-name {
+    @extend %header-appearance;
+    @extend %ellipsis;
+    margin: .6em 0 1.6em;
+    font-size: $header;
+    text-align: center;
+  }
+}
+
+.menu {
+  &__wrapper {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: block;
+    height: 50px;
+    border-radius: 3px;
+    padding-left: 25px;
+    line-height: 50px;
+    color: $text-base;
+    text-decoration: none;
+    @extend %ellipsis;
+    @include transition();
+
+    &:hover,
+    &.active { color: $palette-light; }
+
+    &.active { background-color: #17232e; }
+  }
+
+  &__icon { margin-right: .6em; }
+}

@@ -1,0 +1,26 @@
+// Local vars
+$side-panel-width: 300px;
+$main-content-width: 765px;
+
+.container {
+  @extend .cf;
+  background-image: linear-gradient(150deg, #{$palette-main}, #1a2d3b);
+}
+
+.side-panel,
+.main-content {
+  float: left;
+  min-height: 100vh;
+}
+
+.main-content {
+  width: calc(100% - #{$side-panel-width});
+  max-width: $main-content-width;
+  padding: 25px 5px 10px 35px;
+
+  &__header {
+    margin: 0;
+    font-size: $header-xl;
+    @extend %header-appearance;
+  }
+}
