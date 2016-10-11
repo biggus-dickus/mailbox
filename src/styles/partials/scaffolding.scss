@@ -1,0 +1,36 @@
+html { box-sizing: border-box; }
+
+*,
+*:before,
+*:after { box-sizing: inherit; }
+
+body {
+  min-width: $screen-xs; 
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $p;
+  line-height: 1.42;
+  color: $text-base;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  font-size: $p;
+}
+
+// Hiding spinners in num fields by default
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0; 
+}
+
+input[type='number'] { -moz-appearance: textfield; }
+
+// Placeholders and Overflow
+input[placeholder] { text-overflow: ellipsis; }
+::-moz-placeholder { text-overflow: ellipsis; } // FF 19+
+input:-moz-placeholder { text-overflow: ellipsis; }

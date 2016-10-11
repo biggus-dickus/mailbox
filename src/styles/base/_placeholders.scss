@@ -1,0 +1,11 @@
+%ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+%hyphens {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}

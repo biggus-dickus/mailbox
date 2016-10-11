@@ -1,0 +1,199 @@
+/* Clearfix mixin */
+@mixin clearfix() {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+// Always in center (for absolutely positioned elements)
+@mixin abs-center($by-x-axis: 50%, $by-y-axis: 50%) {
+  @if $by-x-axis and $by-y-axis {
+    left: $by-x-axis;
+    top: $by-y-axis;
+    transform: translate(-$by-x-axis, -$by-y-axis);
+  } 
+  @else if $by-x-axis and $by-y-axis == false {
+    left: $by-x-axis;
+    transform: translateX(-$by-x-axis);
+  }
+  @else if $by-x-axis == false and $by-y-axis {
+    top: $by-y-axis;
+    transform: translateY(-$by-y-axis);
+  }
+}
+
+// Always in center (for abs. positioned elements, using the margins trick)
+@mixin abs-center-margins($horizontally: true, $vertically: true) {
+  @if $horizontally and $vertically {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  } 
+  @else if $horizontally and $vertically == false {
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+  @else if $horizontally == false and $vertically {
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+  }
+}
+
+// Default smooth transition effect
+@mixin transition($property: all) {
+  transition: $property 0.2s linear;
+}
+
+// Button Mixin
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
+    color: $color;
+    background-color: darken($background, 10%);
+    border-color: darken($border, 12%);
+  }
+  &:active,
+  &.active {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: lighten($background, 85%);
+      color: #333;
+      border-color: $border;
+      // cursor: not-allowed;
+    }
+  }
+}
+
+// CSS Triangles
+@mixin triangle-top($size, $color) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $size;
+  border-color: $color;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-style: none;
+}
+
+@mixin triangle-right($size, $color) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $size;
+  border-color: $color;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-style: none;
+}
+
+@mixin triangle-bottom($size, $color) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $size;
+  border-color: $color;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-style: none;
+}
+
+@mixin triangle-left($size, $color) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $size;
+  border-color: $color;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-style: none;
+}
+
+
+// Hamburger Generator
+// ------------------------------------------------------------------------
+@mixin hamburger-generator($width: 32px, $height: 3px, $gutter: 5px, $color: #000,
+                    $border-radius: 0, $duration: .3s,
+                    $timing-function: ease) {
+  
+  $hamburger-width: $width;
+  $hamburger-height: $height;
+  $hamburger-gutter: $gutter;
+  $hamburger-color: $color;
+  $hamburger-border-radius: $border-radius;
+  $hamburger-duration: $duration;
+  $hamburger-timing-function: $timing-function;
+  position: relative;
+  margin-top: $hamburger-height + $hamburger-gutter;
+  margin-bottom: $hamburger-height + $hamburger-gutter;
+
+  &,
+  &:before,
+  &:after {
+    display: block;
+    width: $hamburger-width;
+    height: $hamburger-height;
+    transition: background-color $hamburger-duration $hamburger-timing-function,
+                transform $hamburger-duration $hamburger-timing-function;
+
+    @if ($hamburger-border-radius != 0) {
+      border-radius: $hamburger-border-radius;
+    }
+
+    background-color: $hamburger-color;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: "";
+  }
+
+  &:before {
+    top: -($hamburger-height + $hamburger-gutter);
+  }
+
+  &:after {
+    top: $hamburger-height + $hamburger-gutter;
+  }
+}
+
+
+// Hamburger Animation
+// ------------------------------------------------------------------------
+@mixin hamburger-animation($hamburger-gutter: 5px, $hamburger-height: 3px) {
+  background-color: transparent;
+
+  &:before {
+    transform: translateY($hamburger-gutter + $hamburger-height) rotate(45deg);
+  }
+
+  &:after {
+    transform: translateY(-($hamburger-gutter + $hamburger-height)) rotate(-45deg);
+  }
+}

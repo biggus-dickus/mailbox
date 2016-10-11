@@ -1,0 +1,36 @@
+.hidden { display: none; }
+
+.invisible { visibility: hidden; }
+
+.relative { position: relative; }
+
+.clearfix,
+.cf { @include clearfix(); }
+
+.to-left { float: left; }
+
+.to-right { float: right; }
+
+.text-left { text-align: left; }
+
+.text-center { text-align: center; }
+
+.text-right { text-align: right; }
+
+.ib {
+  list-style: none;
+  padding-left: 0;
+  font-size: 0;
+
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+  }
+
+  &.ib__item--vab { vertical-align: bottom; }
+
+  &.ib__item--vabl { vertical-align: baseline; }
+
+  &.ib__item--vat { vertical-align: top; }
+}
