@@ -7,5 +7,5 @@ This is a course project for [AngularJS](http://learn.javascript.ru/courses/angu
 ## How to deploy
 
 1. Clone the project from Github.
-2. Install all required dependencies via NPM (run `npm install` and then `bower install` in your terminal while in the project root directory). *Note:* you also need to have Node.js, NPM and Bower installed on your machine.
+2. Install all required dependencies (run `npm install` and then `bower install` in your terminal while in the project root directory). *Note:* you also need to have Node.js, NPM and Bower installed on your machine.
 3. Run `gulp` command in the terminal window.

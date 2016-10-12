@@ -1,0 +1,11 @@
+<ul class="mail">
+  <li data-ng-repeat="letter in $ctrl.letters" 
+      data-ng-click="toggle = !toggle" 
+      data-ng-class="{'is-truncated': !toggle, 'is-opened': toggle}"
+      class="mail__item is-truncated">
+    <h3 class="mail__title">From: {{letter.sender}}</h3>
+    <p class="mail__body">{{letter.contents}}</p>
+  </li>
+</ul>
+
+<h2 class="header-secondary">Total letters: {{$ctrl.letters.length}}</h2>

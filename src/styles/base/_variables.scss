@@ -1,27 +1,32 @@
-/* Paths */
+// Paths
 $fonts-path: "../fonts"; // Relative to the compiled CSS file!
 
-/* Dimensions */
-$sm: 768px;
+// Breakpoints
+$screen-xs: 320px;
+$screen-sm: 768px;
 
-/* Retina */
+// Retina
 $retina2x: "(min-resolution: 2dppx)";
 $retina3x: "(min-resolution: 3dppx)";
 
-/* Sizes */
-$navbar-height: 55px;
+// Colors
+$color-main: #3e545f;
+$color-main--dark: #17232e;
 
-/* Colors */
-$palette-main: #3e545f;
-$palette-light: #fff;
-$palette-dark: #000;
+$color-light: #fff;
+$color-dark: #000;
+
 $text-base: #8da3c5;
 
-/* Typography */
+// Typography
 $p: 16px;
 $header: 1.5 * $p;
+$header-sm: 0.9 * $p;
 $header-xl: 2 * $p;
 
+// Dimensions
+$side-panel-width: 300px;
+$main-content-width: 805px;
 
 /* etc */
 $over9000: -9999px;

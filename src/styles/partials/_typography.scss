@@ -1,0 +1,15 @@
+.header-primary {
+  margin: 0;
+  font-size: $header-xl;
+  @extend %header-appearance;
+}
+
+.header-secondary {
+  padding-bottom: 12px;
+  border-bottom: 2px solid #2c404c;
+  margin-bottom: 1em;
+  font-size: $header-sm;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: $color-light;
+}

@@ -5,7 +5,7 @@ html { box-sizing: border-box; }
 *:after { box-sizing: inherit; }
 
 body {
-  min-width: $sm; 
+  min-width: $screen-sm; 
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: $p;
   line-height: 1.45;

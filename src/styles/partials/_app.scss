@@ -1,26 +1,56 @@
-// Local vars
-$side-panel-width: 300px;
-$main-content-width: 765px;
-
-.container {
-  @extend .cf;
-  background-image: linear-gradient(150deg, #{$palette-main}, #1a2d3b);
-}
-
-.side-panel,
 .main-content {
-  float: left;
-  min-height: 100vh;
-}
-
-.main-content {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: $side-panel-width;
   width: calc(100% - #{$side-panel-width});
-  max-width: $main-content-width;
+  min-height: 100vh;
   padding: 25px 5px 10px 35px;
+  background-image: linear-gradient(150deg, #{$color-main}, #1a2d3b);
+  overflow-y: scroll;
 
-  &__header {
-    margin: 0;
-    font-size: $header-xl;
-    @extend %header-appearance;
+  &__wrapper { max-width: $main-content-width; }
+}
+
+.is-truncated,
+.is-truncated * { @extend %ellipsis; }
+
+.mail {
+  list-style: none;
+  padding: 0 10px;
+  margin: 2em 0 2.5em;
+
+  &__item {
+    position: relative;
+    border: 1px solid $color-light;
+    border-radius: 3px;
+    padding: 10px 10px 10px 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    @include transition();
+
+    &::before {
+      content: "+";
+      position: absolute;
+      top: 5px;
+      left: 15px;
+      font-size: 2.5em;
+    }
+
+    &:hover,
+    &.is-opened {
+      color: $color-light;
+      background-color: darken($color-main, 7%);
+      text-shadow: 1px 0 $color-main--dark;
+    }
+
+    &.is-opened::before {
+      content: "\2212";
+    }
+
+    &.is-opened .mail__body { white-space: pre-wrap; }
   }
+
+  &__title,
+  &__body { margin: 0; }
 }
