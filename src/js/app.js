@@ -1,9 +1,10 @@
 'use strict';
+// Paths must be relative to the COMPILED .js file, but with compensation to gh-pages structure: `domain/project/index.html`
 
 var app = angular.module('myMailApp', []);
 
 app.component('mailbox', {
-  templateUrl: '../templates/letters.tpl.html', // all paths are relative to the COMPILED .js file!
+  templateUrl: 'templates/letters.tpl.html', 
     controller: function() {
       this.letters = [
         {
