@@ -1,50 +1,33 @@
 'use strict';
-// Paths must be relative to the COMPILED .js file, but with compensation to gh-pages structure: `domain/project/index.html`
+/**
+ * Paths must be relative to the COMPILED .js file, but with compensation to
+ * gh-pages structure: `domain/project/index.html`
+ *
+ * !!!TODO: cope with minify/uglify issues!!!
+ */
 
 var app = angular.module('myMailApp', []);
 
+app.service('MailService', function($http) {
+  this.getLetters = function() {
+    return $http.get('http://test-api.javascript.ru/v1/maxm/letters').
+        then(
+          function(response) {
+            return response.data; //success
+        },
+          function(response) {
+            console.log('Houston we\'ve got problems:' + response.status + ', ' + response.statusText);
+          });
+  }
+});
+
 app.component('mailbox', {
-  templateUrl: 'templates/letters.tpl.html', 
-    controller: function() {
-      this.letters = [
-        {
-          "id": 1,
-          "sender": "Константин Константинопольский",
-          "date": "2016-09-30",
-          "contents": "Здравствуйте Мартин Алексеевич! Сегодня немного прохладно и тучи были с утра я думал, а вдруг дождь пойдёт и огурцы накрыл днём когда обычно самое солнце. Но щас вроде ничего только тучи. Занялся я ещё и разборкой сарая стал низ разбирать и он весь гнилой оказался. Конешно ведь в низине стоит там вода и щас стоит ещё. Начал разбирать и думал а как бы вот в троём то как у Кудряшовых то разобрали. Но у нас ведь на нас только с Машей всё, а Николай да вы не переломитесь. Вы все думаете мы вам обязаны вы вот благодетель а мы работай здесь! Нет дорогой товарищ я тоже кое чего соображаю я фронтовик и в военкомате меня ценят как никак. Так что я так издеваться над собой не позволю я срать не позволю на себя как никак а я тоже почище вашего жизнь знаю."
-        },
-          {
-          "id": 2,
-          "sender": "Борис Глогер",
-          "date": "2016-09-29",
-          "contents": "Рипс, я высушу тебя. Когда-нибудь? OK. Топ-директ.\nПисать письма в наше время — страшное занятие. Но ты знаком с условиями. Здесь запрещены все средства связи, кроме голубиной почты. Мелькают пакеты в зеленой W-бумаге. Их запечатывают сургучом. Хорошее слово, рипс нимада?"
-        },
-          {
-          "id": 3,
-          "sender": "Anonymous",
-          "date": "2016-09-27",
-          "contents": "ВНИМАНИЕ!!!!\nВАШ ЯЩИК ВЗЛОМАН!!!\nЯ ВЗЛОМАЛ ЕГО!!!ЕСЛИ ХОТИТЕ ИЗБЕЖАТЬ ПОТЕРИ ДЕНЕГ\nИ КЛИЕНТОВ ОПЛАТИТЕ 1000 РУБЛЕЙ КАРТАМИ ЯНДЕКС-ДЕНЬГИ\nПРИШЛИТЕ МНЕ БЕЗ ЛИШНИХ ВОПРОСОВ В ТЕЧЕНИИ 12 ЧАСОВ\nДАННЫЕ КАРТ НОМЕР,ПАРОЛЬ И ПРОВЕРОЧНЫЙ НОМЕР.\nСРАЗУ ПРЕДУПРЕЖДАЮ!!!ВАШЕ ПРОМЕДЛЕНИЕ,ГЛУПЫЕ ВОПРОСЫ,ХАМСТВО И УГРОЗЫ\nНЕ ПОМОГУТ!!! ВЫ ПОТЕРЯЕТЕ В ДЕСЯТКИ РАЗ БОЛЬШЕ ЕСЛИ НЕ СДЕЛАЕТЕ,ТО ЧТО Я СКАЗАЛ!!!!"
-        },
-          {
-          "id": 4,
-          "sender": "Служба хорошего настроения",
-          "date": "2016-09-20",
-          "contents": "Вам надоело зависеть от барыг, предлагающих анашу втридорога? Вашему вниманию предлагаются элитные сорта конопли, которые Вы можете выращивать на подоконнике, балконе или даче."
-        },
-          {
-          "id": 5,
-          "sender": "Сторож Сергеев",
-          "date": "2016-08-31",
-          "contents": "Зеленая лампа и грязный стол,\nИ правила над столом.\nСторож Сергеев глядит в стакан\nИ думает о былом;\nНо вот приходят к нему друзья,\nПрервав его мыслей ход.\nИ быстро вливают портвейна литр\nСторожу прямо в рот."
-        }
-      ];
-    }
-    
-    // controller: function($http) {
-    //   var self = this;
-    //   $http.get('../data/letters.json').
-    //     success(function(data) {
-    //       return self.letters = data;
-    //     });
-    // }
+  templateUrl: 'templates/letters.tpl.html',
+    controller: ['MailService', function(MailService) {
+      var self = this;
+      MailService.getLetters()
+        .then(function(letters) {
+          return self.letters = letters;
+        });
+    }]
 });

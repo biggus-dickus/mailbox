@@ -16,7 +16,7 @@ var gulp = require('gulp'),
   pngquant = require('imagemin-pngquant'),
   imagemin = require('gulp-imagemin'),
   htmlmin = require('gulp-htmlmin'),
-  
+
   // BrowserSync
   browserSync = require("browser-sync"),
   reload = browserSync.reload;
@@ -104,8 +104,8 @@ gulp.task('css:build', function() {
 
 gulp.task('js:build', function() {
   gulp.src(path.src.js)
-    .pipe(uglify())
-    .pipe(rename('app.min.js'))
+    // .pipe(uglify())
+    // .pipe(rename('app.min.js'))
     .pipe(gulp.dest(path.build.js))
     .pipe(reload({stream: true}));
 });
