@@ -10,7 +10,7 @@ var app = angular.module('myMailApp', []);
 
 app.service('MailService', function($http) {
   this.getLetters = function() {
-    return $http.get('http://test-api.javascript.ru/v1/maxm/letters').
+    return $http.get('//test-api.javascript.ru/v1/maxm/letters').
         then(
           function(response) {
             return response.data; //success
