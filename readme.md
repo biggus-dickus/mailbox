@@ -4,9 +4,7 @@ This is a course project for [AngularJS](http://learn.javascript.ru/courses/angu
 
 **Dates:** 26.09.2016—01.11.2016.
 
-To view the app on gh-pages, click [here](https://biggus-dickus.github.io/mailbox/). 
-
-*Note:* you'll have to allow loading the data from an "unsafe" source in your browser to use the app. It's because the letters themselves come from a remote server via http protocol to GitHub Pages, which uses https. There's nothing malicious about that, just a minor maladjustment.
+To view the app on gh-pages, click [here](https://biggus-dickus.github.io/mailbox/).
 
 ## How to deploy
 
