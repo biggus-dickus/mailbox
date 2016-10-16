@@ -54,3 +54,18 @@
   &__title,
   &__body { margin: 0; }
 }
+
+.clock {
+  float: right;
+
+  i {
+    font-style: normal;
+    animation: tick-tock 1.2s ease-in-out infinite;
+  }
+}
+
+@keyframes tick-tock {
+  0%, 100% { opacity: 1; }
+
+  50% { opacity: 0; }
+}
