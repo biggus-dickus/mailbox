@@ -44,7 +44,7 @@
     color: $text-base;
     text-decoration: none;
     @extend %ellipsis;
-    @include transition();
+    @include transition(color);
 
     &:hover,
     &.active { color: $color-light; }

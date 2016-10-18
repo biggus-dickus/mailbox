@@ -1,4 +1,6 @@
-<section data-ng-if="!$ctrl.selectedLetter">
+<h1 class="header-primary">Inbox</h1>
+
+<section id="mail-list" data-ng-if="!$ctrl.selectedLetter">
   <table class="mail-table">
     <tbody>
       <tr class="mail-table__row" data-ng-repeat="letter in $ctrl.letters" data-ng-click="$ctrl.showLetter(letter)">
@@ -14,6 +16,6 @@
   <h2 class="header-secondary">Total letters: {{$ctrl.letters.length}}</h2>
 </section>
 
-<section data-ng-if="$ctrl.selectedLetter">
+<section id="mail-view" data-ng-if="$ctrl.selectedLetter">
   <letter data-letter="$ctrl.selectedLetter"></letter>
 </section>

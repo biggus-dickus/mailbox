@@ -15,25 +15,25 @@
       <nav class="menu">
         <ul class="menu__wrapper">
           <li class="menu__item">
-            <a href="#" class="menu__link active">
+            <a ui-sref="inbox" ui-sref-active="active"  class="menu__link">
               <i class="fa fa-envelope-o menu__icon"></i>
               Inbox
             </a>
           </li>
           <li class="menu__item">
-            <a href="#" class="menu__link">
+            <a ui-sref="sent" ui-sref-active="active" class="menu__link">
               <i class="fa fa-send-o menu__icon"></i>
               Sent mail
             </a>
           </li>
           <li class="menu__item">
-            <a href="#" class="menu__link">
+            <a ui-sref="spam" ui-sref-active="active" class="menu__link">
               <i class="fa fa-thumbs-down menu__icon"></i>
               Spam
             </a>
           </li>
           <li class="menu__item">
-            <a href="#" class="menu__link">
+            <a ui-sref="address-book" ui-sref-active="active" class="menu__link">
               <i class="fa fa-users menu__icon"></i>
               Address book
             </a>
@@ -46,13 +46,13 @@
       <div class="main-content__wrapper">
 
         <div class="clearfix">
-          <div class="clock"><clock></clock></div>
+          <div class="clock">
+            <clock></clock>
+          </div>
         </div>
+         
+         <ui-view></ui-view>
 
-        <h1 class="header-primary">Inbox</h1>
-        <mailbox>
-          <div class="loader">Loading&hellip;</div>
-        </mailbox>
       </div>
 
     </main>
@@ -60,6 +60,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="js/app.js"></script>
 
   </body>
