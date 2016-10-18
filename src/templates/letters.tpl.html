@@ -1,11 +1,19 @@
-<ul class="mail">
-  <li data-ng-repeat="letter in $ctrl.letters"
-      data-ng-click="toggle = !toggle"
-      data-ng-class="{'is-truncated': !toggle, 'is-opened': toggle}"
-      class="mail__item is-truncated">
-    <h3 class="mail__title">{{letter.subject}}</h3>
-    <p class="mail__body">{{letter.body}}</p>
-  </li>
-</ul>
+<section data-ng-if="!$ctrl.selectedLetter">
+  <table class="mail-table">
+    <tbody>
+      <tr class="mail-table__row" data-ng-repeat="letter in $ctrl.letters" data-ng-click="$ctrl.showLetter(letter)">
+        <td class="mail-table__subject is-truncated">
+          {{letter.subject}}
+        </td>
+        <td class="mail-table__body is-truncated">
+          {{letter.body.slice(0, 75) + '&hellip;'}}
+      </tr>
+    </tbody>
+  </table>
 
-<h2 class="header-secondary">Total letters: {{$ctrl.letters.length}}</h2>
+  <h2 class="header-secondary">Total letters: {{$ctrl.letters.length}}</h2>
+</section>
+
+<section data-ng-if="$ctrl.selectedLetter">
+  <letter data-letter="$ctrl.selectedLetter"></letter>
+</section>

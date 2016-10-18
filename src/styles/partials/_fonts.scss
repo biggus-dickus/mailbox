@@ -43,5 +43,17 @@
   url($fonts-path + "/open-sans/OpenSansBold/OpenSansBold.woff") format("woff"),
   url($fonts-path + "/open-sans/OpenSansBold/OpenSansBold.ttf") format("truetype");
   font-style: normal;
+  font-weight: 700;
+}
+
+// "OpenSansSemiBold"
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans"), local("OpenSans-SemiBold");
+  src: url($fonts-path + "/open-sans/OpenSansSemiBold/OpenSansSemiBold.eot");
+  src: url($fonts-path + "/open-sans/OpenSansSemiBold/OpenSansSemiBold.eot?#iefix")format("embedded-opentype"),
+  url($fonts-path + "/open-sans/OpenSansSemiBold/OpenSansSemiBold.woff") format("woff"),
+  url($fonts-path + "/open-sans/OpenSansSemiBold/OpenSansSemiBold.ttf") format("truetype");
+  font-style: normal;
   font-weight: 600;
 }

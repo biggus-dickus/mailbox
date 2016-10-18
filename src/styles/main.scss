@@ -1,14 +1,15 @@
 @charset "UTF-8";
 
-/* Vendor */
-@import "../vendor/breakpoint-sass/stylesheets/breakpoint";
-@import "vendor/normalize-5.0.0/normalize";
-@import "vendor/font-awesome-4.6.3/font-awesome";
-
 /* Base */
 @import "base/variables";
 @import "base/mixins";
 @import "base/placeholders";
+
+/* Vendor */
+@import "../vendor/breakpoint-sass/stylesheets/breakpoint";
+@import "vendor/normalize-5.0.0/normalize";
+@import "vendor/font-awesome-4.6.3/font-awesome";
+@import "vendor/spinner";
 
 /* Modules */
 @import "partials/app";

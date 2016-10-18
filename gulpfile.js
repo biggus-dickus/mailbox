@@ -104,6 +104,7 @@ gulp.task('css:build', function() {
 
 gulp.task('js:build', function() {
   gulp.src(path.src.js)
+    .pipe(rigger())
     // .pipe(uglify())
     // .pipe(rename('app.min.js'))
     .pipe(gulp.dest(path.build.js))

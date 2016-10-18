@@ -12,47 +12,41 @@
   &__wrapper { max-width: $main-content-width; }
 }
 
-.is-truncated,
-.is-truncated * { @extend %ellipsis; }
+.is-truncated { @extend %ellipsis; }
 
-.mail {
-  list-style: none;
-  padding-left: 0;
-  margin: 2em 0 2.5em;
+.mail-table,
+.letter-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.15em 0;
+}
 
-  &__item {
-    position: relative;
-    border: 1px solid $color-light;
-    border-radius: 3px;
-    padding: 10px 10px 10px 50px;
-    margin-bottom: 10px;
+.mail-table {
+  table-layout: fixed;
+
+  &__row:not(:last-child) { border-bottom: 1px solid #325771; }
+
+  &__row:hover {
+    background-color: $color-main--dark;
+    color: lighten($text-base, 10%);
     cursor: pointer;
-    @include transition();
-
-    &::before {
-      content: "+";
-      position: absolute;
-      top: 5px;
-      left: 15px;
-      font-size: 2.5em;
-    }
-
-    &:hover,
-    &.is-opened {
-      color: $color-light;
-      background-color: darken($color-main, 7%);
-      text-shadow: 1px 0 $color-main--dark;
-    }
-
-    &.is-opened::before {
-      content: "\2212";
-    }
-
-    &.is-opened .mail__body { white-space: pre-wrap; }
   }
 
-  &__title,
-  &__body { margin: 0; }
+  &__subject,
+  &__body { padding: 10px 5px; }
+
+  &__subject {
+    width: 25%;
+    font-weight: 700;
+  }
+
+  &__body { width: 75%; }
+}
+
+.letter-table {
+  &__body {
+    padding: 1em 0;
+  }
 }
 
 .clock {

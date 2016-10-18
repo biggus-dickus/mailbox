@@ -10,6 +10,8 @@ body {
   font-size: $p;
   line-height: 1.45;
   color: $text-base;
+
+  button { font-family: inherit; }
 }
 
 img {

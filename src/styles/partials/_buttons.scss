@@ -1,3 +1,44 @@
-// .btn {
-//   @include button-variant(#000, #ddd, #666);
-// }
+.btn {
+  @include transition();
+  @extend .ib__item;
+  @extend %ellipsis;
+  position: relative;
+  padding: 5px 10px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  outline: none;
+  font-size: .9em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+
+  &:focus { animation: shift .2s linear; }
+
+  &.btn--confirm {
+    color: $color-light;
+    background-color: $btn-base;
+
+    &:hover,
+    &:focus {
+      background-color: $color-light;
+      color: $btn-base;
+    }
+  }
+
+  &.btn--cancel {
+    background-color: transparent;
+    color: $text-base;
+
+    &:hover,
+    &:focus {
+      border-color: currentColor;
+      color: $btn-base;
+    }
+  }
+}
+
+@keyframes shift {
+  0%, 100% { top: 0; }
+
+  50% { top: 1px; }
+}
