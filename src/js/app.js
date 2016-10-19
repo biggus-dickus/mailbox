@@ -10,20 +10,27 @@
   var app = angular.module('myMailApp', ['ui.router']);
 
   app.config(function($stateProvider) {
-    $stateProvider.state('inbox', {
+    $stateProvider.state({
+      name: 'inbox',
       // url: '/inbox',
       url: '',
-      template: '<mailbox />'
+      template: '<mailbox />',
     });
-    $stateProvider.state('sent', {
+    
+    $stateProvider.state({
+      name: 'sent',
       url: '/sent',
       template: '<sent />'
     });
-    $stateProvider.state('spam', {
+
+    $stateProvider.state({
+      name: 'spam',
       url: '/spam',
       template: '<spam />'
     });
-    $stateProvider.state('address-book', {
+    
+    $stateProvider.state({
+      name: 'address-book',
       url: 'address-book',
       template: '<address-book />'
     });

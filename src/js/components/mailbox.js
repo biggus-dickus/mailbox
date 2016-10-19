@@ -1,5 +1,5 @@
 app.component('mailbox', {
-  templateUrl: 'templates/letters.tpl.html',
+  templateUrl: 'templates/mailbox.tpl.html',
   controller: ['MailService', function(MailService) {
     var self = this;
     
