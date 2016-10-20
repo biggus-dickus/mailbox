@@ -4,6 +4,8 @@ This is a course project for [AngularJS](http://learn.javascript.ru/courses/angu
 
 **Dates:** 26.09.2016–01.11.2016.
 
+To work with JSON data, an external service API is used: [test-api.javascript.ru](http://test-api.javascript.ru/).
+
 To view the app on gh-pages, click [here](https://biggus-dickus.github.io/mailbox/).
 
 ## How to deploy
