@@ -1,0 +1,15 @@
+.contacts-table {
+  @extend %fluid-table;
+  table-layout: fixed;
+  
+  &__wrapper {
+    padding: 5px;
+    border: 2px solid #325771;
+    border-radius: 5px;
+    margin: 1.15em 0 1.75em;
+  }
+
+  &__td {
+    width: 50%;
+  }
+}

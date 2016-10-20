@@ -16,12 +16,11 @@
 
 .mail-table,
 .letter-table {
-  border-collapse: collapse;
-  width: 100%;
+  @extend %fluid-table;
 }
 
 .mail-table {
-  margin: 1.15em 0;
+  margin: 1.15em 0 2em;
   table-layout: fixed;
 
   &__row { border-bottom: 1px solid #325771; }
@@ -33,7 +32,7 @@
   }
 
   &__subject,
-  &__body { padding: 10px 5px; }
+  &__body { padding: 10px; }
 
   &__subject {
     width: 25%;
