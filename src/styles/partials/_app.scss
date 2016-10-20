@@ -18,13 +18,13 @@
 .letter-table {
   border-collapse: collapse;
   width: 100%;
-  margin: 1.15em 0;
 }
 
 .mail-table {
+  margin: 1.15em 0;
   table-layout: fixed;
 
-  &__row:not(:last-child) { border-bottom: 1px solid #325771; }
+  &__row { border-bottom: 1px solid #325771; }
 
   &__row:hover {
     background-color: $color-main--dark;
@@ -44,6 +44,8 @@
 }
 
 .letter-table {
+  margin: 1.3em 0;
+
   &__body {
     padding: 1em 0;
   }

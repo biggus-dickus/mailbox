@@ -1,9 +1,8 @@
-<h1 class="header-primary">Inbox</h1>
-
-<section id="mail-list" data-ng-if="!$ctrl.selectedLetter">
+<section id="mail-list">
+  <h1 class="header-primary">Inbox</h1>
   <table class="mail-table">
     <tbody>
-      <tr class="mail-table__row" data-ng-repeat="letter in $ctrl.letters" data-ng-click="$ctrl.showLetter(letter)">
+      <tr ui-sref="letter({ letterId: letter._id })" class="mail-table__row" data-ng-repeat="letter in $ctrl.letters">
         <td class="mail-table__subject is-truncated">
           {{letter.subject}}
         </td>
@@ -14,8 +13,4 @@
   </table>
 
   <h2 class="header-secondary">Total letters: {{$ctrl.letters.length}}</h2>
-</section>
-
-<section id="mail-view" data-ng-if="$ctrl.selectedLetter">
-  <letter data-letter="$ctrl.selectedLetter"></letter>
 </section>

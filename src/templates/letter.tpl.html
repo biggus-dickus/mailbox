@@ -1,21 +1,26 @@
-<table class="letter-table">
-  <thead>
-    <tr>
-      <th>To:</th>
-      <td>{{$ctrl.letter.to}}</td>
-    </tr>
-    <tr>
-      <th>Subject:</th>
-      <td>{{$ctrl.letter.subject}}</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="2" class="letter-table__body">{{$ctrl.letter.body}}</td>
-    </tr>
-  </tbody>
-</table>
+<section id="mail-view">
+  <h1 class="header-primary">{{$ctrl.letter.subject}}</h1>
 
-<div class="text-right">
-  <button ng-click="$ctrl.goBack()" class="btn btn--cancel">Back</button>
-</div>
+  <table class="letter-table">
+    <thead>
+      <tr>
+        <th>To:</th>
+        <td>{{$ctrl.letter.to}}</td>
+      </tr>
+      <tr>
+        <th>Subject:</th>
+        <td>{{$ctrl.letter.subject}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2" class="letter-table__body">{{$ctrl.letter.body}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-right">
+    <button ui-sref="inbox" class="btn btn--cancel">Back</button>
+  </div>
+
+</section>

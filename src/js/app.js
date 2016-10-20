@@ -10,30 +10,41 @@
   var app = angular.module('myMailApp', ['ui.router']);
 
   app.config(function($stateProvider) {
-    $stateProvider.state({
-      name: 'inbox',
-      // url: '/inbox',
-      url: '',
-      template: '<mailbox />',
-    });
-    
-    $stateProvider.state({
-      name: 'sent',
-      url: '/sent',
-      template: '<sent />'
+    $stateProvider.state('inbox', {
+      url: '/inbox',
+      component: 'mailbox',
+      resolve: {
+        letters: function(MailService) {
+          return MailService.getLetters();
+        }
+      }
     });
 
-    $stateProvider.state({
-      name: 'spam',
-      url: '/spam',
-      template: '<spam />'
+    $stateProvider.state('letter', {
+      url: '/mailbox/{letterId}', 
+      component: 'letter',
+      resolve: {
+        letter: function(MailService, $transition$) {
+          return MailService.getLetter($transition$.params().letterId);
+        }
+      }
     });
     
-    $stateProvider.state({
-      name: 'address-book',
-      url: 'address-book',
-      template: '<address-book />'
+    $stateProvider.state('sent', {
+      url: '/sent',
+      component: 'sent'
     });
+
+    $stateProvider.state('spam', {
+      url: '/spam',
+      component: 'spam'
+    });
+    
+    $stateProvider.state('address-book', {
+      url: 'address-book',
+      component: 'addressBook'
+    });
+
   });
 
 
