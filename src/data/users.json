@@ -1,0 +1,47 @@
+[  
+  {  
+    "_id":"580a88259de15a250410db2c",
+    "fullName":"Конунг Сигурд Синяя Рожа",
+    "email":"drakkar@death-to-england.se",
+    "avatarUrl":"http://randomuser.me/api/portraits/thumb/men/28.jpg",
+    "birthdate":"0666-06-05T21:00:00.000Z",
+    "gender":"M",
+    "address":"Тронхейм"
+  },
+  {  
+    "_id":"580a88129de15a250410db2b",
+    "fullName":"Fred Fuchs",
+    "email":"fred-fuchs@your-mom.com",
+    "avatarUrl":"http://randomuser.me/api/portraits/thumb/men/99.jpg",
+    "birthdate":"2002-02-19T22:00:00.000Z",
+    "gender":"M",
+    "address":"666 Highland ln., Kickapoo"
+  },
+  {  
+    "_id":"580a88009de15a250410db2a",
+    "fullName":"Антонина Львовна",
+    "email":"uhn-tiss@uhn-tiss.com",
+    "avatarUrl":"http://randomuser.me/api/portraits/thumb/women/66.jpg",
+    "birthdate":"1953-12-15T22:00:00.000Z",
+    "gender":"F",
+    "address":"15 Skitter Ave., El Armpito"
+  },
+  {  
+    "_id":"580a87db9de15a250410db29",
+    "fullName":"Jane Doe",
+    "email":"cornholio@turdholio.com",
+    "avatarUrl":"http://randomuser.me/api/portraits/thumb/women/13.jpg",
+    "birthdate":"1994-12-31T22:00:00.000Z",
+    "gender":"F",
+    "address":"11 Coprophiliac str., Shitsville"
+  },
+  {  
+    "_id":"580a86f99de15a250410db28",
+    "fullName":"John Doe",
+    "email":"kickmeinthenuts@fuck-you.com",
+    "avatarUrl":"http://randomuser.me/api/portraits/thumb/men/69.jpg",
+    "birthdate":"1976-02-27T22:00:00.000Z",
+    "gender":"M",
+    "address":"Бердянск, наб. Морская, 777"
+  }
+]

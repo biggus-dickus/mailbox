@@ -1,3 +1,4 @@
 app.component('addressBook', {
-  templateUrl: 'templates/address-book.tpl.html',
+  bindings: { users: '<' },
+  templateUrl: 'templates/address-book.tpl.html'
 });

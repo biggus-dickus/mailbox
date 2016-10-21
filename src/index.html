@@ -15,25 +15,25 @@
       <nav class="menu">
         <ul class="menu__wrapper">
           <li class="menu__item">
-            <a ui-sref="inbox" ui-sref-active="active" class="menu__link">
+            <a data-ui-sref="inbox" data-ui-sref-active="active" class="menu__link">
               <i class="fa fa-envelope-o menu__icon"></i>
               Inbox
             </a>
           </li>
           <li class="menu__item">
-            <a ui-sref="sent" ui-sref-active="active" class="menu__link">
+            <a data-ui-sref="sent" data-ui-sref-active="active" class="menu__link">
               <i class="fa fa-send-o menu__icon"></i>
               Sent mail
             </a>
           </li>
           <li class="menu__item">
-            <a ui-sref="spam" ui-sref-active="active" class="menu__link">
+            <a data-ui-sref="spam" data-ui-sref-active="active" class="menu__link">
               <i class="fa fa-thumbs-down menu__icon"></i>
               Spam
             </a>
           </li>
           <li class="menu__item">
-            <a ui-sref="address-book" ui-sref-active="active" class="menu__link">
+            <a data-ui-sref="address-book" data-ui-sref-active="active" class="menu__link">
               <i class="fa fa-users menu__icon"></i>
               Address book
             </a>
@@ -44,7 +44,7 @@
 
     <main class="main-content">
       <div class="main-content__wrapper">
-        
+
         <clock></clock>
 
         <ui-view></ui-view>

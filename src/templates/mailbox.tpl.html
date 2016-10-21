@@ -2,7 +2,7 @@
   <h1 class="header-primary">Inbox</h1>
   <table class="mail-table">
     <tbody>
-      <tr ui-sref="letter({ letterId: letter._id })" class="mail-table__row" data-ng-repeat="letter in $ctrl.letters">
+      <tr data-ui-sref="letter({ letterId: letter._id })" class="mail-table__row" data-ng-repeat="letter in $ctrl.letters">
         <td class="mail-table__subject is-truncated">
           {{letter.subject}}
         </td>

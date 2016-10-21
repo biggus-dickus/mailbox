@@ -9,19 +9,30 @@
 (function() {
   var app = angular.module('myMailApp', ['ui.router']);
 
+  
+  /**
+   * A collection of urls to fetch data from.
+   * Use it as param for required MailService methods.
+   * @type {Object}
+   */
+  var urls = {
+    letters: '//test-api.javascript.ru/v1/maxm/letters',
+    users: '//test-api.javascript.ru/v1/maxm/users'
+  };
+
   app.config(function($stateProvider) {
     $stateProvider.state('inbox', {
       url: '/inbox',
       component: 'mailbox',
       resolve: {
         letters: function(MailService) {
-          return MailService.getLetters();
+          return MailService.getData(urls.letters);
         }
       }
     });
 
     $stateProvider.state('letter', {
-      url: '/mailbox/{letterId}', 
+      url: '/inbox/{letterId}', 
       component: 'letter',
       resolve: {
         letter: function(MailService, $transition$) {
@@ -42,7 +53,12 @@
     
     $stateProvider.state('address-book', {
       url: 'address-book',
-      component: 'addressBook'
+      component: 'addressBook',
+      resolve: {
+        users: function(MailService) {
+          return MailService.getData(urls.users);
+        }
+      }
     });
 
   });
@@ -58,5 +74,7 @@
 //= components/sent.js
 //= components/spam.js
 //= components/address-book.js
+
+//= components/post-data.js
 
 })();

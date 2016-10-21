@@ -1,15 +1,65 @@
-.contacts-table {
-  @extend %fluid-table;
-  table-layout: fixed;
-  
-  &__wrapper {
-    padding: 5px;
-    border: 2px solid #325771;
-    border-radius: 5px;
-    margin: 1.15em 0 1.75em;
+.contacts {
+  font-size: 0;
+
+  &__item-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+    padding: 15px 15px 0 0;
   }
 
-  &__td {
-    width: 50%;
+  &__item {
+    border: 2px solid #325771;
+    border-radius: 10px;
+    color: $color-light;
+  }
+
+
+  &__pic {
+    position: absolute;
+    top: 20px;
+    width: 52px;
+    height: 52px;
+    border: 2px solid #c4c4c4;
+    border-radius: 50%;
+    @include abs-center-margins(true, false);
+  }
+
+  &__name { 
+    position: relative;
+    display: block;
+    padding: 80px 5px 10px;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.12 * $p;
+    font-weight: 300;
+    text-align: center;
+    background-color: $color-main--dark;
+  }
+
+  &__details {
+    list-style: none;
+    padding: 15px 15px 20px;
+  }
+
+  &__entry-wrapper:not(:last-child) { margin-bottom: 15px; }
+
+  &__header {
+    margin: 1em 0 0.15em;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  &__entry {
+    font-size: 0.88 * $p;
+    font-style: normal;
+  }
+
+  a.contacts__entry {
+    color: $color-light;
+    text-decoration: none;
+    @extend %hyphens;
+
+    &:hover { text-decoration: underline; }
   }
 }
