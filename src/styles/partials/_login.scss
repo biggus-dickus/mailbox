@@ -1,0 +1,31 @@
+.login-form {
+  position: absolute;
+  @include abs-center-margins(true, false);
+  top: 25vh;
+  width: 340px;
+  height: 295px;
+  padding: 20px;
+  border: 2px solid $color-blue;
+  border-radius: 20px;
+
+  &__header {
+    @extend %header-appearance;
+    margin: .5em 0 1em;
+    font-size: $header;
+    text-align: center;
+  }
+
+  &__input,
+  &__btn { 
+    width: 100%;
+    min-height: 35px;
+  }
+
+  &__input {
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  &__btn { margin-top: 10px; }
+}

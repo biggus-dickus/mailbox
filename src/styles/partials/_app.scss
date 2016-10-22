@@ -23,7 +23,7 @@
   margin: 1.15em 0 2em;
   table-layout: fixed;
 
-  &__row { border-bottom: 1px solid #325771; }
+  &__row { border-bottom: 1px solid $color-blue; }
 
   &__row:hover {
     background-color: $color-main--dark;

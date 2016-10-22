@@ -32,3 +32,13 @@ input[type='number'] { -moz-appearance: textfield; }
 input[placeholder] { text-overflow: ellipsis; }
 ::-moz-placeholder { text-overflow: ellipsis; } // FF 19+
 input:-moz-placeholder { text-overflow: ellipsis; }
+
+/* Smooth opacity transition for input placeholder on focus */
+input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}

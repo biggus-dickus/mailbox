@@ -21,6 +21,11 @@
   };
 
   app.config(function($stateProvider) {
+    $stateProvider.state('login', {
+      url: '',
+      component: 'login'
+    });
+
     $stateProvider.state('inbox', {
       url: '/inbox',
       component: 'mailbox',
@@ -68,6 +73,7 @@
  * For now, building components with gulp-rigger
  */
 //= services/MailService.js
+//= components/login.js
 //= components/clock.js
 //= components/mailbox.js
 //= components/letter.js
