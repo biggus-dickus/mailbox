@@ -8,6 +8,12 @@ To work with JSON data, an external service API is used: [test-api.javascript.ru
 
 To view the app on gh-pages, click [here](https://biggus-dickus.github.io/mailbox/).
 
+## How to authorize
+
+To sign in, use the following credentials:
+- Login: `bratishka`
+- Password: `777`
+
 ## How to deploy
 
 1. Clone the project from Github.
