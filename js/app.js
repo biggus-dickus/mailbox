@@ -21,17 +21,23 @@
   };
 
   app.config(function($stateProvider) {
-    $stateProvider.state('inbox', {
+
+    $stateProvider.state('home', {
+      url: '',
+      component: 'home'
+    })
+    .state('inbox', {
+      parent: 'home',
       url: '/inbox',
-      component: 'mailbox',
+      component: 'inbox',
       resolve: {
         letters: function(MailService) {
           return MailService.getData(urls.letters);
         }
       }
-    });
-
-    $stateProvider.state('letter', {
+    })
+    .state('letter', {
+      parent: 'home',
       url: '/inbox/{letterId}', 
       component: 'letter',
       resolve: {
@@ -39,33 +45,48 @@
           return MailService.getLetter($transition$.params().letterId);
         }
       }
-    });
-    
-    $stateProvider.state('sent', {
+    })
+    .state('sent', {
+      parent: 'home',
       url: '/sent',
       component: 'sent'
-    });
-
-    $stateProvider.state('spam', {
+    })
+    .state('spam', {
+      parent: 'home',
       url: '/spam',
       component: 'spam'
-    });
-    
-    $stateProvider.state('address-book', {
-      url: 'address-book',
+    })
+    .state('address-book', {
+      parent: 'home',
+      url: '/address-book',
       component: 'addressBook',
       resolve: {
         users: function(MailService) {
           return MailService.getData(urls.users);
         }
       }
+    })
+    .state('login', {
+      url: '/login',
+      component: 'login'
     });
 
   });
 
+  app.run(function ($transitions, AuthService) {
+    $transitions.onEnter({
+      to: '**'
+    }, function ($transition$, $state$) {
+        if ($state$.name !== 'login' && !AuthService.isAuthenticated()) {
+          return $transition$.router.stateService.target('login');
+        }
+    });
+});
+
 
 /**
- * For now, building components with gulp-rigger
+ * For now, building components with gulp-rigger,
+ * Webpack will be integrated as soon as I grasp it.
  */
 app.service('MailService', function($http) {
   
@@ -92,6 +113,28 @@ app.service('MailService', function($http) {
     });
   }
 });
+app.service('AuthService', function() {
+  var isAuthenticated;
+
+  this.authenticate = function(login, password) {
+    (login === 'bratishka' && password === '777') ? isAuthenticated = true : isAuthenticated = false;
+  };
+
+  this.isAuthenticated = function() {
+    return isAuthenticated;
+  }
+});
+
+app.component('login', {
+  templateUrl: 'templates/login.tpl.html',
+  
+  controller: function(AuthService, $state) {
+    this.authenticate = function() {
+      AuthService.authenticate(this.login, this.password);
+      $state.go('inbox');
+    };
+  }
+});
 app.component('clock', {
   template: '<div class="clearfix">' +
               '<div class="clock">' +
@@ -115,9 +158,12 @@ app.component('clock', {
     }.bind(this), 1000);
   }
 });
-app.component('mailbox', {
+app.component('home', {
+  templateUrl: 'templates/home.tpl.html'
+});
+app.component('inbox', {
   bindings: { letters: '<' },
-  templateUrl: 'templates/mailbox.tpl.html'
+  templateUrl: 'templates/inbox.tpl.html'
 });
 app.component('letter', {
   bindings: { letter: '<'},
