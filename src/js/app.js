@@ -22,17 +22,22 @@
 
   app.config(function($stateProvider) {
 
-    $stateProvider.state('inbox', {
+    $stateProvider.state('home', {
+      url: '',
+      component: 'home'
+    })
+    .state('inbox', {
+      parent: 'home',
       url: '/inbox',
-      component: 'mailbox',
+      component: 'inbox',
       resolve: {
         letters: function(MailService) {
           return MailService.getData(urls.letters);
         }
       }
-    });
-
-    $stateProvider.state('letter', {
+    })
+    .state('letter', {
+      parent: 'home',
       url: '/inbox/{letterId}', 
       component: 'letter',
       resolve: {
@@ -40,19 +45,19 @@
           return MailService.getLetter($transition$.params().letterId);
         }
       }
-    });
-    
-    $stateProvider.state('sent', {
+    })
+    .state('sent', {
+      parent: 'home',
       url: '/sent',
       component: 'sent'
-    });
-
-    $stateProvider.state('spam', {
+    })
+    .state('spam', {
+      parent: 'home',
       url: '/spam',
       component: 'spam'
-    });
-    
-    $stateProvider.state('address-book', {
+    })
+    .state('address-book', {
+      parent: 'home',
       url: '/address-book',
       component: 'addressBook',
       resolve: {
@@ -60,28 +65,41 @@
           return MailService.getData(urls.users);
         }
       }
-    });
-
-    $stateProvider.state('login', {
+    })
+    .state('login', {
       url: '/login',
       component: 'login'
     });
 
   });
 
+  app.run(function ($transitions, AuthService) {
+    $transitions.onEnter({
+      to: '**'
+    }, function ($transition$, $state$) {
+        if ($state$.name !== 'login' && !AuthService.isAuthenticated()) {
+          return $transition$.router.stateService.target('login');
+        }
+    });
+});
+
 
 /**
- * For now, building components with gulp-rigger
+ * For now, building components with gulp-rigger,
+ * Webpack will be integrated as soon as I grasp it.
  */
 //= services/MailService.js
-//= components/login.js
-//= components/clock.js
-//= components/mailbox.js
-//= components/letter.js
-//= components/sent.js
-//= components/spam.js
-//= components/address-book.js
+//= services/AuthService.js
 
-//= components/post-data.js
+//= components/loginComponent.js
+//= components/clockComponent.js
+//= components/homeComponent.js
+//= components/inboxComponent.js
+//= components/letterComponent.js
+//= components/sentComponent.js
+//= components/spamComponent.js
+//= components/addressBookComponent.js
+
+//= components/postDataComponent.js
 
 })();

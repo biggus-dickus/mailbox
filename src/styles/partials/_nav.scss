@@ -43,6 +43,7 @@
     line-height: 50px;
     color: $text-base;
     text-decoration: none;
+    outline: none;
     @extend %ellipsis;
     @include transition(color);
 

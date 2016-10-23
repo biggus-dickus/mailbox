@@ -7,54 +7,9 @@
 
   <body data-ng-app="myMailApp">
 
-    <aside class="side-panel">
-      <figure class="side-panel__user">
-        <img class="side-panel__user-pic" width="115" height="115" src="img/userpic.jpg" alt="userpic">
-        <figcaption class="side-panel__user-name">username</figcaption>
-      </figure>
-
-      <nav class="menu">
-        <ul class="menu__wrapper">
-          <li class="menu__item">
-            <a data-ui-sref="inbox" data-ui-sref-active="active" class="menu__link">
-              <i class="fa fa-envelope-o menu__icon"></i>
-              Inbox
-            </a>
-          </li>
-          <li class="menu__item">
-            <a data-ui-sref="sent" data-ui-sref-active="active" class="menu__link">
-              <i class="fa fa-send-o menu__icon"></i>
-              Sent mail
-            </a>
-          </li>
-          <li class="menu__item">
-            <a data-ui-sref="spam" data-ui-sref-active="active" class="menu__link">
-              <i class="fa fa-thumbs-down menu__icon"></i>
-              Spam
-            </a>
-          </li>
-          <li class="menu__item">
-            <a data-ui-sref="address-book" data-ui-sref-active="active" class="menu__link">
-              <i class="fa fa-users menu__icon"></i>
-              Address book
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-
-    <main class="main-content">
-      <div class="main-content__wrapper">
-
-        <clock></clock>
-
-        <ui-view>
-          <div class="loader"></div>
-        </ui-view>
-
-      </div>
-
-    </main>
+    <ui-view>
+      <div class="loader"></div>
+    </ui-view>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
