@@ -2,11 +2,22 @@
   position: absolute;
   @include abs-center-margins(true, false);
   top: 25vh;
-  width: 340px;
-  height: 295px;
+  width: 80%;
+  max-width: 340px;
   padding: 20px;
   border: 2px solid $color-blue;
   border-radius: 20px;
+
+  &::before {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(150deg, #{$color-main}, #1a2d3b);
+  }
 
   &__header {
     @extend %header-appearance;
@@ -27,5 +38,5 @@
     margin-bottom: 10px;
   }
 
-  &__btn { margin-top: 10px; }
+  &__btn { margin: 10px 0; }
 }

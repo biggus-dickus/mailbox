@@ -21,10 +21,6 @@
   };
 
   app.config(function($stateProvider) {
-    $stateProvider.state('login', {
-      url: '',
-      component: 'login'
-    });
 
     $stateProvider.state('inbox', {
       url: '/inbox',
@@ -57,13 +53,18 @@
     });
     
     $stateProvider.state('address-book', {
-      url: 'address-book',
+      url: '/address-book',
       component: 'addressBook',
       resolve: {
         users: function(MailService) {
           return MailService.getData(urls.users);
         }
       }
+    });
+
+    $stateProvider.state('login', {
+      url: '/login',
+      component: 'login'
     });
 
   });
